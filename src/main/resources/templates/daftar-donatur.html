@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Website Penggalangan Dana untuk Ijat</title>
+        <link rel="stylesheet" th:href="@{style.css}">
+    </head>
+
+    <body>
+        <div class="table-container">
+            <a href="/"><button>Kembali ke halaman utama</button></a>
+            <h2>Tabel kasus yang sudah dicatat</h2>
+            <table>
+                <thead>
+                    <tr>
+                    <th>Nama</th>
+                    <th>Asal daerah</th>
+                    <th>Jumlah donasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- if block untuk meng-handle jika belum ada donatur -->
+                    <tr th:if="${daftarDonatur.size()} == 0">
+                        <td colspan="3"> Belum ada donasi </td>
+                    </tr>
+                    <!-- iterasi daftar donatur untuk ditampilkan dalam tabel -->
+                    <tr th:each="donatur: ${daftarDonatur}">
+                       <td><span th:text="${donatur.getNama()}"></span></td>
+                       <td><span th:text="${donatur.getAsalDaerah()}"></span></td>
+                       <td><span th:text="${donatur.getJumlahDonasi()}"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

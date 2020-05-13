@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Website Penggalangan Dana untuk Ijat</title>
+        <link rel="stylesheet" th:href="@{style.css}">
+    </head>
+
+    <body>
+        <div class="container">
+           <h1 th:text="'Total dana terkumpul ' + ${danaTerkumpul} + ' ringgit'"></h1>
+           <h2 th:text="${totalDonatur} + ' telah berdonasi untuk Ijat'"></h2>
+            <div class="button-container">
+                <a href="/"><button>Halaman utama</button></a>
+                <a href="/daftar-donatur"><button>Lihat daftar donatur</button></a>
+            </div>
+        </div>
+    </body>
+</html>
